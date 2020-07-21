@@ -1,13 +1,10 @@
 version: 2.1
-orbs:
-  ruby: circleci/ruby@0.1.2 
-
+executors:
+  ci-executor:
+    docker:
+      - image: REPLACE-ME-WITH-DOCKER-IMAGE
 jobs:
   build:
-    executor: ruby/default
+    executor: ci-executor
     steps:
       - checkout
-      - run:
-          name: Which bundler?
-          command: bundle -v
-      - ruby/bundle-install
